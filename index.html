@@ -31,6 +31,7 @@
 <body class="p-3">
     <div class="container p-0 d-flex" id="app">
 
+        <!-- contact side -->
         <div class="contacts-side">
 
             <div class="my-account d-flex align-items-center justify-content-between p-2">
@@ -61,19 +62,48 @@
                 </div>
             </div>
 
-            <div class="contacts" v-for="contact in contacts">
-                <div class="contact-chat p-2 d-flex align-items-center">
-                    <img :src="contact.avatar" class="rounded-pic rounded-circle">
-                    <div class="ms-2">
-                        <div class="contact-name">{{ contact.name }}</div>
-                        <div class="text-black-50 last-message">Ultimo messaggio inviato</div>
+            <!-- contacts chat -->
+            <div class="contacts" v-for="(contact, index) in contacts">
+                <div class="contact-chat p-2 d-flex justify-content-between">
+                    <div class="d-flex align-items-center">
+                        <img :src="contact.avatar" class="rounded-pic rounded-circle">
+                        <div class="ms-2 align-self-start">
+                            <div class="contact-name">{{ contact.name }}</div>
+                            <div class="text-black-50 last-message">Ultimo messaggio inviato</div>
+                        </div>
                     </div>
+                    <div class="text-black-50 last-message">12.00</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- chat side -->
+        <div class="chat-side">
+            <div class="chat-header d-flex align-items-center justify-content-between p-2">
+                <div class="d-flex align-items-center">
+                    <img src="./img/avatar_1.jpg" class="rounded-pic rounded-circle">
+                    <div class="ms-2">
+                        <div>{{ contacts[0].name }}</div>
+                        <div class="text-black-50 last-message">Ultimo accesso oggi alle 12.00</div>
+                    </div>
+                </div>
+
+                <div>
+                    <i class="bi bi-search text-black-50 mx-1"></i>
+                    <i class="fa-solid fa-paperclip text-black-50 mx-1"></i>
+                    <i class="bi bi-three-dots-vertical text-black-50 mx-1"></i>
                 </div>
             </div>
 
-        </div>
-        <div class="chat-side">
+            <div class="active-chat">
 
+            </div>
+
+            <div class="message-box d-flex align-items-center justify-content-evenly">
+                <i class="bi bi-emoji-smile text-black-50 fs-5"></i>
+                <input type="text" class="form-control message-input" placeholder="Scrivi un messaggio">
+                <i class="bi bi-mic-fill text-black-50 fs-5"></i>
+            </div>
         </div>
     </div>
 

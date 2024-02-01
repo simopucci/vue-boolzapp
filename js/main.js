@@ -3,6 +3,9 @@ const { createApp } = Vue;
 const app = createApp ({
     data() {
         return {
+
+            hover: false,
+
             contacts: [
                 {
                     name: 'Michele',
@@ -169,6 +172,10 @@ const app = createApp ({
             ]
 
         }
+    },
+
+    methods: {
+        
     }
 });
 

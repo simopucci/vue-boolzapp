@@ -23,9 +23,6 @@ body {
 
 .container {
     height: 710px;
-
-    /* # debug */
-    border: 3px dotted red;
 }
 
 i {
@@ -38,8 +35,9 @@ i {
     height: 100%;
     width: 40%;
 
-    /* # debug */
-    border: 3px dotted white;
+    background-color: rgb(234,234,234);
+    overflow: scroll;
+    overflow-x: hidden;
 }
 
 .my-account {
@@ -73,6 +71,10 @@ i {
     background-color: rgb(234,234,234);
 }
 
+.contacts:hover {
+    background-color: rgb(215, 215, 215);
+}
+
 .contact-chat {
     height: var(--bigger-height);
 }
@@ -89,7 +91,28 @@ i {
 .chat-side {
     height: 100%;
     width: 60%;
+}
 
-    /* # debug */
-    border: 3px dotted yellow;
+.chat-header {
+    height: var(--main-height);
+    background-color: rgb(234,234,234);
+}
+
+.active-chat {
+    height: calc(100% - var(--main-height) - var(--main-height));
+    width: 100%;
+    
+    background-image: url(../img/mine.jpg);
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.message-box {
+    height: var(--main-height);
+
+    background-color: #F3EEEA;
+}
+
+.message-input {
+    width: 80%;
 }
