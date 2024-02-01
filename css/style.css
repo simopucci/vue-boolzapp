@@ -1,0 +1,95 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* *ROOT */
+:root {
+    --main-height: 50px;
+    --bigger-height: 60px;
+}
+
+
+/* *GENERALS*/
+body {
+    height: 100vh;
+    font-family: 'Lato', sans-serif;
+
+    background: rgb(62,62,62);
+    background: linear-gradient(0deg, rgba(62,62,62,1) 85%, rgba(0,150,136,1) 85%, rgba(0,150,136,1) 85%);
+}
+
+.container {
+    height: 710px;
+
+    /* # debug */
+    border: 3px dotted red;
+}
+
+i {
+    cursor: pointer;
+}
+
+
+/* *CONTACTS SIDE LEFT */
+.contacts-side {
+    height: 100%;
+    width: 40%;
+
+    /* # debug */
+    border: 3px dotted white;
+}
+
+.my-account {
+    height: var(--main-height);
+    background-color: rgb(234,234,234);
+}
+
+.notification {
+    height: var(--bigger-height);
+    background-color: rgb(142,218,252);
+}
+
+.rounded-pic {
+    height: 45px;
+    width: 45px;
+
+    background-color: rgb(228, 228, 228);
+}
+
+.enable-notification {
+    height: var(--bigger-height);
+    max-width: 100%;
+    font-size: small;
+}
+
+.input-box {
+    background-color: rgb(234,234,234);
+}
+
+.contacts {
+    background-color: rgb(234,234,234);
+}
+
+.contact-chat {
+    height: var(--bigger-height);
+}
+
+.contact-name {
+    font-size: medium;
+}
+
+.last-message {
+    font-size: x-small;
+}
+
+/* *CHAT SIDE RIGHT */
+.chat-side {
+    height: 100%;
+    width: 60%;
+
+    /* # debug */
+    border: 3px dotted yellow;
+}
