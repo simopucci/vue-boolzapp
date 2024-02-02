@@ -36,8 +36,7 @@ i {
     width: 40%;
 
     background-color: rgb(234,234,234);
-    overflow: scroll;
-    overflow-x: hidden;
+    overflow: auto;
 }
 
 .my-account {
@@ -104,8 +103,7 @@ i {
     width: 100%;
     
     background-image: url(../img/mine.jpg);
-    overflow: scroll;
-    overflow-x: hidden;
+    overflow: auto;
 }
 
 .message {
