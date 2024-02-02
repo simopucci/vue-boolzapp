@@ -63,16 +63,16 @@
             </div>
 
             <!-- contacts chat -->
-            <div class="contacts" v-for="(contact, index) in contacts">
-                <div class="contact-chat p-2 d-flex justify-content-between">
+            <div class="contacts" v-for="(contact, i) in contacts">
+                <div class="contact-chat p-2 d-flex justify-content-between" @click="newActiveContact(i)">
                     <div class="d-flex align-items-center">
                         <img :src="contact.avatar" class="rounded-pic rounded-circle">
                         <div class="ms-2 align-self-start">
                             <div class="contact-name">{{ contact.name }}</div>
-                            <div class="text-black-50 last-message">Ultimo messaggio inviato</div>
+                            <div class="text-black-50 last-message">{{ contact.messages[contact.messages.length - 1].message }}</div>
                         </div>
                     </div>
-                    <div class="text-black-50 last-message">12.00</div>
+                    <div class="text-black-50 last-message">{{ getLastAccess(contact.messages).substring(11,16) }}</div>
                 </div>
             </div>
         </div>
@@ -81,10 +81,10 @@
         <div class="chat-side">
             <div class="chat-header d-flex align-items-center justify-content-between p-2">
                 <div class="d-flex align-items-center">
-                    <img src="./img/avatar_1.jpg" class="rounded-pic rounded-circle">
+                    <img :src="contacts[currentContact].avatar" class="rounded-pic rounded-circle">
                     <div class="ms-2">
-                        <div>{{ contacts[0].name }}</div>
-                        <div class="text-black-50 last-message">Ultimo accesso oggi alle 12.00</div>
+                        <div>{{ contacts[currentContact].name }}</div>
+                        <div class="text-black-50 last-message">Ultimo accesso il {{ getLastAccess(contacts[currentContact].messages) }}</div>
                     </div>
                 </div>
 
@@ -95,13 +95,16 @@
                 </div>
             </div>
 
-            <div class="active-chat">
-
+            <div class="active-chat p-4 d-flex flex-column">
+                <div class="message p-3 pt-2 pb-0 rounded-3 text-break my-2" v-for="message in contacts[currentContact].messages" :class="message.status == 'sent' ? 'green' : 'white'">
+                    {{ message.message }}
+                    <span class="message-time mb-1 text-end">{{ message.date.substring(11,16) }}</span>
+                </div>
             </div>
 
             <div class="message-box d-flex align-items-center justify-content-evenly">
                 <i class="bi bi-emoji-smile text-black-50 fs-5"></i>
-                <input type="text" class="form-control message-input" placeholder="Scrivi un messaggio">
+                <input v-model="newMessage.message" @keyUp.enter="sendMessage()" type="text" class="form-control message-input" placeholder="Scrivi un messaggio">
                 <i class="bi bi-mic-fill text-black-50 fs-5"></i>
             </div>
         </div>

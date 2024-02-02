@@ -4,14 +4,19 @@ const app = createApp ({
     data() {
         return {
 
-            hover: false,
-
+            currentContact: 0,
+            newMessage: {
+                date: '',
+                message: '',
+                status: 'sent'
+            },
+            
             contacts: [
                 {
                     name: 'Michele',
                     avatar: './img/avatar_1.jpg',
                     visible: true,
-                    message: [
+                    messages: [
                         {
                             date: '10/01/2020 15:30:55',
                             message: 'Hai portato a spasso il cane?',
@@ -175,7 +180,45 @@ const app = createApp ({
     },
 
     methods: {
-        
+
+        setCurrentContact(index) {
+            this.currentContact = index;
+        },
+
+        getLastAccess(messages) {
+            const sentMessage = messages.filter((message) => message.status == 'sent');
+            const lastMessage = sentMessage[sentMessage.length - 1];
+            return lastMessage.date;
+        },
+
+        getCurrentTime() {
+            const now = new Date();
+            return `${now.getDate().toString().padStart(2, '0')}/${(now.getMonth() + 1).toString().padStart(2, '0')}/${now.getFullYear()} ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`;
+        },
+
+        sendMessage() {
+            const newMessage = { ...this.newMessage };
+
+            newMessage.date = this.getCurrentTime();
+            this.contacts[this.currentContact].messages.push(newMessage);
+            this.newMessage.message = '';
+
+            setTimeout(this.sendAutomaticResponse, 1000);
+        },
+
+        sendAutomaticResponse() {
+            const newMessage = { 
+                message: 'ok',
+                date: this.getCurrentTime(),
+                status: 'received'
+            };
+
+            this.contacts[this.currentContact].messages.push(newMessage);
+        },
+
+        newActiveContact(index) {
+            this.currentContact = index;
+        }
     }
 });
 
