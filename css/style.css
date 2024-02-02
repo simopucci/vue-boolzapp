@@ -39,6 +39,10 @@ i {
     overflow: auto;
 }
 
+.active {
+    background-color: rgb(215, 215, 215);
+}
+
 .my-account {
     height: var(--main-height);
     background-color: rgb(234,234,234);

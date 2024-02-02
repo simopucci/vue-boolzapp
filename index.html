@@ -64,7 +64,7 @@
 
             <!-- contacts chat -->
             <div class="contacts" v-for="(contact, i) in contacts">
-                <div class="contact-chat p-2 d-flex justify-content-between" @click="newActiveContact(i)">
+                <div class="contact-chat p-2 d-flex justify-content-between" @click="newActiveContact(i)" :class="{'active': i == currentContact}">
                     <div class="d-flex align-items-center">
                         <img :src="contact.avatar" class="rounded-pic rounded-circle">
                         <div class="ms-2 align-self-start">

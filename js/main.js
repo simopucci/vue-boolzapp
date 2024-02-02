@@ -208,7 +208,7 @@ const app = createApp ({
 
         sendAutomaticResponse() {
             const newMessage = { 
-                message: 'ok',
+                message: 'Stai zitto!',
                 date: this.getCurrentTime(),
                 status: 'received'
             };
