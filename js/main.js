@@ -10,7 +10,7 @@ const app = createApp ({
                 message: '',
                 status: 'sent'
             },
-            
+
             contacts: [
                 {
                     name: 'Michele',
@@ -175,25 +175,25 @@ const app = createApp ({
                 },
                 
             ]
-
+            
         }
     },
 
     methods: {
-
+        
         setCurrentContact(index) {
             this.currentContact = index;
         },
-
+        
         getLastAccess(messages) {
             const sentMessage = messages.filter((message) => message.status == 'sent');
             const lastMessage = sentMessage[sentMessage.length - 1];
             return lastMessage.date;
         },
-
+        
         getCurrentTime() {
             const now = new Date();
-            return `${now.getDate().toString().padStart(2, '0')}/${(now.getMonth() + 1).toString().padStart(2, '0')}/${now.getFullYear()} ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`;
+            return `${now.getDate().toString().padStart(2, '0')}/${(now.getMonth() + 1).toString().padStart(2, '0')}/${now.getFullYear().toString()} ${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}:${now.getSeconds().toString().padStart(2, '0')}`;
         },
 
         sendMessage() {
@@ -218,7 +218,7 @@ const app = createApp ({
 
         newActiveContact(index) {
             this.currentContact = index;
-        }
+        },
     }
 });
 
