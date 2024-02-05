@@ -5,6 +5,7 @@ const app = createApp ({
         return {
 
             currentContact: 0,
+            contactsInput: '',
             newMessage: {
                 date: '',
                 message: '',
@@ -219,6 +220,15 @@ const app = createApp ({
         newActiveContact(index) {
             this.currentContact = index;
         },
+
+        contactsFilter() {
+            this.contactsInput;
+
+            this.contacts = this.contacts.map((contact) => {
+                contact.visible = contact.name.toLowerCase().includes(this.contactsInput.toLowerCase()) ? true : false;
+                return contact;
+            })
+        }
     }
 });
 
